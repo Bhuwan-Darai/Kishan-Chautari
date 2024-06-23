@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Kishan-Chautari",
-    "slug": "Kishan-Chautari",
+    "slug": "kishan-chautari",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -19,7 +19,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.bhuwan_darai.kishanchautari"
     },
     "web": {
       "bundler": "metro",
@@ -31,6 +32,15 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "224b1fdc-e49f-41af-84c6-59c73b65b1b6"
+      }
+    },
+    "owner": "bhuwan_darai"
   }
 }

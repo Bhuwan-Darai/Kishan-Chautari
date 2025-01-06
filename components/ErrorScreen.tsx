@@ -5,7 +5,7 @@ const ErrorScreen = ({ message }: { message: string }) => {
   return (
     <View style={styles.errorContainer}>
       <Image
-        source={require("../../assets/images/sahidlakhhan.png")}
+        source={require("../assets/images/sahidlakhhan.png")}
         style={styles.errorImage}
       />
       <Text style={styles.errorTitle}>Oops!</Text>

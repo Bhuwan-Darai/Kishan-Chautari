@@ -1,11 +1,10 @@
-import { View, Text, StyleSheet, Image } from "react-native";
-import React from "react";
+import { Image, StyleSheet, View } from "react-native";
 
 export default function LoadingScreen() {
   return (
     <View style={styles.loadingContainer}>
       <Image
-        source={require("../../assets/images/sahidlakhhan.png")}
+        source={require("../assets/images/sahidlakhhan.png")}
         style={styles.loadingImage}
       />
     </View>

@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import { View, StyleSheet, Text } from "react-native";
 import Constants from "expo-constants";
 import WebView from "react-native-webview";
@@ -6,9 +5,11 @@ import * as SecureStore from "expo-secure-store";
 import * as Location from "expo-location";
 import * as Notifications from "expo-notifications";
 import { Camera } from "expo-camera";
-import ErrorScreen from "./components/ErrorScreen";
-import LoadingScreen from "./components/LoadingScreen";
+
 import { supabase } from "@/supabaseClient";
+import { useEffect, useState } from "react";
+import LoadingScreen from "@/components/LoadingScreen";
+import ErrorScreen from "@/components/ErrorScreen";
 
 // Configure notification handler
 Notifications.setNotificationHandler({
@@ -38,14 +39,16 @@ export default function App() {
   const fetchUri = async () => {
     try {
       const { data, error } = await supabase
-        .from("settings")
-        .select("webview_uri")
+        .from("kishanchautari")
+        .select("url")
         .limit(1);
+
+      console.log("data", data);
 
       if (error) throw error;
 
       if (data && data.length > 0) {
-        const webviewUri = `${data[0].webview_uri}?cameraPermission=${cameraPermission}&locationPermission=${locationPermission}&notificationPermission=${notificationPermission}`;
+        const webviewUri = `${data[0].url}?cameraPermission=${cameraPermission}&locationPermission=${locationPermission}&notificationPermission=${notificationPermission}`;
         setUri(webviewUri);
         await SecureStore.setItemAsync("webview_uri", webviewUri);
       } else {

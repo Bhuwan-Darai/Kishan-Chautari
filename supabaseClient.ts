@@ -1,23 +1,11 @@
 /** @format */
 
 import { createClient } from "@supabase/supabase-js";
-import Constants from "expo-constants";
-
-// Define a type for our expected configuration
-interface ExpoConfig {
-  extra?: {
-    supabaseUrl?: string;
-    supabaseAnonKey?: string;
-  };
-}
-
-// Use type assertion to tell TypeScript that we expect Constants.expoConfig to be ExpoConfig
-const expoConfig = Constants.expoConfig as ExpoConfig | null;
 
 // Use optional chaining and nullish coalescing to safely access the values
-const supabaseUrl = expoConfig?.extra?.supabaseUrl ?? process.env.supabaseUrl;
+const supabaseUrl = "https://supabasekong-voc8ssw.inprostore.com";
 const supabaseAnonKey =
-  expoConfig?.extra?.supabaseAnonKey ?? process.env.supabaseAnonKey;
+  "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzdXBhYmFzZSIsImlhdCI6MTcyMzM2ODI0MCwiZXhwIjo0ODc5MDQxODQwLCJyb2xlIjoiYW5vbiJ9.aR2roJ2D28MS3LnI1kdsUx3WZwQDlXLOR9IBw6Fv0k8";
 
 // Ensure we have the required values
 if (!supabaseUrl || !supabaseAnonKey) {
